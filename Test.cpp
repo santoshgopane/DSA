@@ -13,12 +13,14 @@ int main()
     int size;
     int arr[99];
 
-    cout << "Enter size of the array:";
-    cin >> size;
-    for (int i = 0; i < size; i++)
-        cin >> arr[i];
+    // cout << "Enter size of the array:";
+    // cin >> size;
+    // for (int i = 0; i < size; i++)
+    //     cin >> arr[i];
 
-    testFunction(arr, size);
-
+    // testFunction(arr, size);
+    char testString[9] = {'S', 't', '\0', 's'};
+    string s = {'a', 'b', '\0', 'b'};
+    cout << testString << "|" << s;
     return 0;
 }
