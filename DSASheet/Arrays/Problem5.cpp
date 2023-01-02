@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void moveNegatives(vector<int> &v)
+void moveNegativesV1(vector<int> &v)
 {
     int length = v.size();
     int start = 0;
@@ -24,6 +24,30 @@ void moveNegatives(vector<int> &v)
             end++;
         }
     }
+    return;
+}
+
+void moveNegatives(vector<int> &v)
+{
+    int length = v.size();
+    int start = 0;
+    int end = length - 1;
+
+    while (start < end)
+    {
+        if (v[start] < 0)
+            start++;
+        else if (v[end] >= 0)
+        {
+            end--;
+        }
+        else
+        {
+            swap(v[start], v[end]);
+            start++, end--;
+        }
+    }
+
     return;
 }
 
