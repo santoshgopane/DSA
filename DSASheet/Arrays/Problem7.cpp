@@ -1,29 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void rotate(int arr[], int n)
+{
+    int temp1 = arr[0], temp2 = -1;
+    for (int i = 0; i < n - 1; i++)
+    {
+        temp2 = arr[i + 1];
+        cout << "temp1:" << temp1 << " temp2: " << temp2 << endl;
+        arr[i + 1] = temp1;
+        temp1 = temp2;
+    }
+    arr[0] = temp1;
+}
+
+// Solution from Editorial
 // void rotate(int arr[], int n)
 // {
-//     int temp1 = arr[0], temp2 = -1;
-//     for (int i = 0; i < n - 1; i++)
+
+//     for (int i = 0; i < n; i++)
 //     {
-//         temp2 = arr[i + 1];
-//         cout << "temp1:" << temp1 << " temp2: " << temp2 << endl;
-//         arr[i + 1] = temp1;
-//         temp1 = temp2;
+
+//         swap(arr[i], arr[n - 1]);
 //     }
-//     arr[0] = temp1;
 // }
-
-void rotate(int arr[], int n)
-
-{
-
-    for (int i = 0; i < n; i++)
-    {
-
-        swap(arr[i], arr[n - 1]);
-    }
-}
 
 int main()
 {
