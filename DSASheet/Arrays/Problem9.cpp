@@ -1,28 +1,30 @@
+// Minimum heights 2 - saw solution from editorial
 #include <bits/stdc++.h>
 using namespace std;
 
 int getMinDiff(int arr[], int n, int k)
 {
-    int smallest = INT_MAX, largest = INT_MIN;
-    for (int i = 0; i < n; i++)
+    sort(arr, arr + n);
+    int ans = arr[n - 1] - arr[0];
+    int tempMin = arr[0], tempMax = arr[n - 1];
+    // int tempMin = -1, tempMax = -1;
+    for (int i = 1; i < n; i++)
     {
+
         if (arr[i] - k < 0)
-        {
-            largest = (arr[i] + k > largest) ? arr[i] + k : largest;
-        }
-        else
-        {
-            smallest = (arr[i] - k < smallest) ? arr[i] - k : smallest;
-        }
-        largest = (arr[i] + k > largest) ? arr[i] + k : largest;
+            continue;
+        tempMin = min(arr[0] + k, arr[i] - k);
+        tempMax = max(arr[n - 1] - k, arr[i - 1] + k);
+        cout << "tempMax: " << tempMax << " tempMin: " << tempMin << endl;
+        ans = min(ans, tempMax - tempMin);
     }
-    cout << "largest: " << largest << " smallest: " << smallest << endl;
-    return largest - smallest;
+    return ans;
 }
 
 int main()
 {
-    int arr[99] = {1, 5, 8, 10};
-    int size = 4, k = 2;
-    cout << getMinDiff(arr, size, k);
+    int arr[99] = {2, 6, 3, 4, 7, 2, 10, 3, 2, 1};
+    int size = 10, k = 5; // ans:7
+    cout << endl
+         << "Minimum Difference is: " << getMinDiff(arr, size, k);
 }
